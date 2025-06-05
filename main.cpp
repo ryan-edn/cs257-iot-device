@@ -18,6 +18,12 @@ public:
     
     void fillWater(int amount) {
         waterLevel += amount;
+        while (waterLevel >= 1000) {
+            waterLevel = 1000;
+            std::cout << "Water level full!" << std::endl;
+            return;
+        }
+        
         std::cout << "Water level: " << waterLevel << " mL" << std::endl;
     }
     
@@ -87,7 +93,7 @@ int main() {
     myCoffee.displayStatus();
     
     // Try to overfill
-    myCoffee.fillWater(600);  // Tank capacity is 1000mL
+    myCoffee.fillWater(1300);  // Tank capacity is 1000mL
     myCoffee.displayStatus();
     
     return 0;
